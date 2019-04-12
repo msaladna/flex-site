@@ -104,6 +104,45 @@ body {
     bottom: 0;
 }
 
+.siteMap {
+    text-decoration: none;
+    color: #dae1e7;
+    margin-left: 1rem;
+}
+
+.siteMap:hover {
+    text-decoration: none;
+    color: #183661;
+}
+
+.activeFoot {
+    font-weight: bold;
+}
+
+#subForm input {
+    height: 50%;
+    border: none;
+    border-radius: 8px;
+    background-color: #dae1e7CC;
+}
+
+#subForm button {
+    background-color: #1c4b82;
+    border-radius: 8px;
+    border: none;
+    padding: 0 1rem;
+    color: #dae1e7;
+    margin: 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+#footer {
+    margin-top: 0.5rem;
+}
+
 @keyframes slide {
     from {
         left: -100vw;
