@@ -45,6 +45,12 @@ nav .active {
     border-radius: 10px 30px;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 body {
     background-color: #dae1e7;
     font-family: 'Mukta', sans-serif;
