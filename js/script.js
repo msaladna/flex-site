@@ -16,37 +16,56 @@ function navSticky() {
 
 // Menu Handler Functions
 (function () {
+    var currentPage = 'home';
     var pageHelper = {
-        /**
-         * Clears the main element
-         */
-        clearPage: function () {
-            document.getElementById('mainSection').innerHTML = "";
+        // Clears the main element
+        clearPage: function (page) {
+            if (page !== currentPage)
+                document.getElementById('mainSection').innerHTML = "";
         },
     };
 
     function setupMenuHandlers() {
         document
-            .getElementsByClassName('home')
+            .getElementById('home1')
             .addEventListener('click', function () {
-                pageHelper.clearPage();
+                pageHelper.clearPage('home');
             });
         document
-            .getElementsByClassName('store')
+            .getElementById('home2')
             .addEventListener('click', function () {
-                pageHelper.clearPage();
+                pageHelper.clearPage('home');
             });
         document
-            .getElementsByClassName('contact')
+            .getElementById('store1')
             .addEventListener('click', function () {
-                // do stuff
+                pageHelper.clearPage('store');
             });
         document
-            .getElementsByClassName('about')
+            .getElementById('store2')
             .addEventListener('click', function () {
-                // do stuff
+                pageHelper.clearPage('store');
+            });
+        document
+            .getElementById('contact1')
+            .addEventListener('click', function () {
+                pageHelper.clearPage('contact');
+            });
+        document
+            .getElementById('contact2')
+            .addEventListener('click', function () {
+                pageHelper.clearPage('contact');
+            });
+        document
+            .getElementById('about1')
+            .addEventListener('click', function () {
+                pageHelper.clearPage('about');
+            });
+        document
+            .getElementById('about2')
+            .addEventListener('click', function () {
+                pageHelper.clearPage('about');
             });
     }
-
     window.onload = setupMenuHandlers;
 })();
