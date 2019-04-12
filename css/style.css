@@ -45,12 +45,19 @@ body {
     overflow: hidden;
     position: absolute;
     left: 0;
-    -webkit-animation: slide 2s forwards;
-    -moz-animation: slide 2s forwards;
-    animation: slide 2s forwards;
 }
 #shake1 img {
     z-index: 1;
+}
+
+#proShake  {
+    border-radius: 30px;
+}
+
+.things2slide {
+    -webkit-animation: slide 2s forwards;
+    -moz-animation: slide 2s forwards;
+    animation: slide 2s forwards;
 }
 
 #description {
