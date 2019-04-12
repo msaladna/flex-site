@@ -64,12 +64,13 @@ body {
     color: #183661;
 }
 
-#shake1 {
+#mainSection {
     overflow: hidden;
     position: absolute;
     left: 0;
 }
-#shake1 img {
+
+#mainSection img {
     z-index: 1;
 }
 

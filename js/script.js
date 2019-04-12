@@ -1,4 +1,4 @@
-/** Add any JavaScript you need to this file. */
+// JS to give navbar sticky behaviour
 window.onscroll = function () {
     navSticky()
 };
@@ -13,3 +13,40 @@ function navSticky() {
         header.classList.remove("sticky");
     }
 }
+
+// Menu Handler Functions
+(function () {
+    var pageHelper = {
+        /**
+         * Clears the main element
+         */
+        clearPage: function () {
+            document.getElementById('mainSection').innerHTML = "";
+        },
+    };
+
+    function setupMenuHandlers() {
+        document
+            .getElementsByClassName('home')
+            .addEventListener('click', function () {
+                pageHelper.clearPage();
+            });
+        document
+            .getElementsByClassName('store')
+            .addEventListener('click', function () {
+                pageHelper.clearPage();
+            });
+        document
+            .getElementsByClassName('contact')
+            .addEventListener('click', function () {
+                // do stuff
+            });
+        document
+            .getElementsByClassName('about')
+            .addEventListener('click', function () {
+                // do stuff
+            });
+    }
+
+    window.onload = setupMenuHandlers;
+})();
