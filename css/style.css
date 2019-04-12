@@ -45,10 +45,17 @@ nav .active {
     border-radius: 10px 30px;
 }
 
+#navSlide {
+    -webkit-animation: slide2 2s forwards;
+    -moz-animation: slide2 2s forwards;
+    animation: slide2 2s forwards;
+}
+
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 3;
 }
 
 body {
@@ -115,6 +122,33 @@ body {
     }
     to {
         left: 0;
+    }
+}
+
+@keyframes slide2 {
+    from {
+        right: -100vw;
+    }
+    to {
+        right: 0;
+    }
+}
+
+@-moz-keyframes slide2 {
+    from {
+        right: -100vw;
+    }
+    to {
+        right: 0;
+    }
+}
+
+@-webkit-keyframes slide2 {
+    from {
+        right: -100vw;
+    }
+    to {
+        right: 0;
     }
 }
 

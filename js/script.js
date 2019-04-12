@@ -1,12 +1,12 @@
 /** Add any JavaScript you need to this file. */
 window.onscroll = function () {
-    myFunction()
+    navSticky()
 };
 
 let header = document.getElementById("navBar");
 let sticky = header.offsetTop;
 
-function myFunction() {
+function navSticky() {
     if (window.pageYOffset > sticky) {
         header.classList.add("sticky");
     } else {
