@@ -1,0 +1,117 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.headerOrTitle {
+    color: #dd6b4d;
+    display: inline-block;
+}
+
+#topLogo {
+    height: 64px;
+}
+
+#navLogo {
+    height: 32px;
+}
+
+nav {
+    border-radius: 0.85rem 2rem;
+    background-color: #1c4b82;
+    box-shadow: 0 0 0 1px #1c4b82fc;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    color: #dae1e7;
+}
+
+body {
+    background-color: #dae1e7;
+    font-family: 'Mukta', sans-serif;
+    color: #183661;
+}
+
+#shake1 {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    -webkit-animation: slide 2s forwards;
+    -moz-animation: slide 2s forwards;
+    animation: slide 2s forwards;
+}
+#shake1 img {
+
+    z-index: 1;
+}
+
+#description {
+    z-index: 2;
+    right: 0;
+    -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 4s; /* Firefox < 16 */
+    animation: fadein 4s;
+}
+
+@keyframes slide {
+    from {
+        left: -100vw;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@-moz-keyframes slide {
+    from {
+        left: -100vw;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@-webkit-keyframes slide {
+    from {
+        left: -100vw;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
