@@ -180,6 +180,20 @@ body {
     width: 250px;
 }
 
+#mainSection > div > div > ul {
+    border-radius: 0.85rem 2rem;
+    background-color: #1c4b82cc;
+    box-shadow: 0 0 0 1px #1c4b82fc;
+}
+
+main div div ul {
+    list-style-type: none;
+}
+
+main div div ul li a {
+    color: #dae1e7;
+}
+
 #footer {
     margin-top: 0.5rem;
 }

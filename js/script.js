@@ -315,7 +315,7 @@ function navSticky() {
                 '  <div class="card-body">' +
                 '    <h5 class="card-title"><marquee onmouseover="this.stop();" onmouseout="this.start();">' + product.title + '</marquee></h5>' +
                 '    <p class="card-text">' + product.description + '</p>' +
-                '    <a href="#_" class="btn btn-primary">Buy now for $' + product.price + '</a>' +
+                '    <a href="#_" class="btn btn-block btn-primary">Buy now for $' + product.price + '</a>' +
                 '  </div>' +
                 '</div></div>';
 
