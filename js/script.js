@@ -18,10 +18,15 @@ function navSticky() {
 (function () {
     let currentPage = '';
     const pageHelper = {
-        // Clears the main element
+        // Clears the main element and populates it with a loading screen to display a loading animation
         clearPage: function (page) {
-            if (page !== currentPage)
-                document.getElementById('mainSection').innerHTML = "";
+            if (page !== currentPage) {
+                document.getElementById('mainSection').innerHTML = `<div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <h1>Loading..</h1>
+                    <div class="lds-ripple"><div></div><div></div></div></div>
+                </div>`;
+            }
         },
         changePage: function (page) {
             currentPage = page;
@@ -56,9 +61,9 @@ function navSticky() {
     };
 
     function setupMenuHandlers() {
-        //pageHelper.clearPage('home');
-        // pageHelper.mainPage('home');
-        //pageHelper.changePage('home');
+        pageHelper.clearPage('home');
+        pageHelper.mainPage('home');
+        pageHelper.changePage('home');
         document
             .getElementById('home1')
             .addEventListener('click', function () {
