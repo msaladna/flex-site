@@ -299,7 +299,7 @@ function navSticky() {
             prods = products.filter(function (prod) {
                 if (prod.category == category || category == 0)
                     return prod
-            })
+            });
             console.log(prods);
 
             prods.forEach(function (element) {
@@ -313,17 +313,17 @@ function navSticky() {
             let h = '<div class="d-flex m-3 product-card"><div class="card flex-fill">' +
                 '  <img class="card-img-top" src="' + product.image + '" alt="Card image cap">' +
                 '  <div class="card-body">' +
-                '    <h5 class="card-title"><marquee>' + product.title + '</marquee></h5>' +
+                '    <h5 class="card-title"><marquee onmouseover="this.stop();" onmouseout="this.start();">' + product.title + '</marquee></h5>' +
                 '    <p class="card-text">' + product.description + '</p>' +
                 '    <a href="#_" class="btn btn-primary">Buy now for $' + product.price + '</a>' +
                 '  </div>' +
-                '</div></div>'
+                '</div></div>';
 
             return h;
         },
         showCategories: function () {
             categories.forEach(function (element) {
-                $('.category-list ul').append('<li><marquee><a href="#_" data-cid="' + element.id + '">' + element.name + '</a></marquee></li>');
+                $('.category-list ul').append('<li><a href="#_" data-cid="' + element.id + '">' + element.name + '</a></></li>');
             })
         },
         changeCategory: function (category) {
@@ -349,7 +349,7 @@ function navSticky() {
         }
 
 
-    }
+    };
 
     //Page initialization and menu handlers
     function setupMenuHandlers() {
