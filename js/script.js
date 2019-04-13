@@ -78,6 +78,159 @@ function navSticky() {
                 return;
             }
         },
+        //Populates Contact page
+        contactPage: function (page) {
+            if (page === currentPage) {
+                console.log(page + ' is the same as ' + currentPage); //debugging
+                return;
+            }
+
+            //Validate Contact Form
+            function formValidator(phoneNum, postalCode) {
+                let phoneFilter = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+                let pcFilter = /^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] ?\d[A-Z]\d)$/;
+
+                if (phoneFilter.test(phoneNum) === false && pcFilter.test(postalCode) === false) {
+                    alert("Validation Error \nPlease Fix Your Postal Code and Phone Number");
+                    return event.preventDefault();
+                }
+                if (phoneFilter.test(phoneNum) === false) {
+                    alert("Validation Error \nPlease Fix Your Phone Number");
+                    return event.preventDefault();
+                }
+                if (pcFilter.test(postalCode) === false) {
+                    alert("Validation Error \nPlease Fix Your Postal Code");
+                    return event.preventDefault();
+                }
+            }
+
+            document.getElementById('mainSection').innerHTML = `<form action="https://httpbin.org/post" method="POST">
+        <label for="options">What Are You Contacting Us About?</label>
+        <select name="options" id="options">
+            <option id="return" name="return" value="return"
+            >Returns
+            </option
+            >
+            <option id="other" name="other" value="other inquires"
+            >Other Inquiries
+            </option
+            >
+
+        </select>
+
+        <br/>
+
+        <label for="fname">First Name</label>
+        <input
+                type="text"
+                id="fname"
+                name="firstname"
+                placeholder="Your name.."
+                required
+        />
+
+        <label for="lname">Last Name</label>
+        <input
+                type="text"
+                id="lname"
+                name="lastname"
+                placeholder="Your last name.."
+                required
+        />
+
+        <label for="email">Email Address</label>
+        <input
+                type="email"
+                id="email"
+                name="email address"
+                placeholder="Example@Example.com"
+                required
+        />
+
+        <label for="address">Address</label>
+        <input
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Your current address"
+                required
+        />
+
+        <label for="address2">Apt Number (optional)</label>
+        <input
+                type="text"
+                id="address2"
+                name="apptnum"
+                placeholder="ex apt 3021"
+        />
+
+        <label for="citymulti"> City </label>
+        <input list="citymulti" name="city " required/>
+        <datalist id="citymulti">
+            <option value="Toronto"></option>
+            <option value="Mississauga"></option>
+            <option value="Oakville"></option>
+            <option value="Hamilton"></option>
+            <option value="London"></option>
+        </datalist>
+
+        <label for="phone">Phone number</label>
+        <input
+                type="text"
+                id="phone"
+                name="phone number"
+                placeholder="999-999-9999"
+                required
+        />
+        <div>
+            <label for="phonecheck">Would you like to be called?</label>
+            <input
+                    type="checkbox"
+                    id="phonecheck"
+                    name="call yes or no"
+            />
+        </div>
+        <label for="postalcode">Postal Code</label>
+        <input
+                type="text"
+                id="postalcode"
+                name="postal code"
+                placeholder="X1X X1X"
+        />
+
+        <label for="subject">Subject</label>
+        <textarea
+                id="subject"
+                name="subject"
+                placeholder="Write something.."
+                style="height:200px"
+                required
+        ></textarea>
+
+        <input
+                type="hidden"
+                id="myname"
+                name="My Name"
+                value="First Last"
+        />
+        <input
+                type="hidden"
+                id="id"
+                name="name"
+                value="value"
+        />
+
+        <input id="SubmitForm" type="submit"/>
+    </form>`;
+            if (document.getElementById("SubmitForm") !== null) {
+                document.getElementById("SubmitForm").addEventListener("click", function () {
+                    formValidator(
+                        document.getElementById("phone").value,
+                        document.getElementById("postalcode").value
+                    );
+                });
+            }
+        },
         //Populates About page
         aboutPage: function (page) {
             if (page === currentPage) {
@@ -111,24 +264,28 @@ function navSticky() {
             .getElementById('store1')
             .addEventListener('click', function () {
                 pageHelper.clearPage('store');
+                pageHelper.storePage('store');
                 pageHelper.changePage('store');
             });
         document
             .getElementById('store2')
             .addEventListener('click', function () {
                 pageHelper.clearPage('store');
+                pageHelper.storePage('store');
                 pageHelper.changePage('store');
             });
         document
             .getElementById('contact1')
             .addEventListener('click', function () {
                 pageHelper.clearPage('contact');
+                pageHelper.contactPage('contact');
                 pageHelper.changePage('contact');
             });
         document
             .getElementById('contact2')
             .addEventListener('click', function () {
                 pageHelper.clearPage('contact');
+                pageHelper.contactPage('contact');
                 pageHelper.changePage('contact');
             });
         document
