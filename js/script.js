@@ -50,7 +50,6 @@ function navSticky() {
                 console.log(page + ' is the same as ' + currentPage); //debugging
                 return;
             }
-            console.log('Writing main page');
             document.getElementById('mainSection').innerHTML = `<div class="row">
                 <div class="col-md d-none d-md-flex things2slide">
                     <div class="mr-1">
@@ -237,7 +236,22 @@ function navSticky() {
                 console.log(page + ' is the same as ' + currentPage); //debugging
                 return;
             }
-
+            document.getElementById('mainSection').innerHTML = `<div class="row">
+                <div class="col-md d-none d-md-flex things2slide">
+                    <div class="mr-1">
+                        <img src="images/shake2.jpg" class="img img-fluid" alt="Protein Shake" id="proShake">
+                    </div>
+                </div>
+                <div class="col-12 col-md" id="description">
+                    <h2>About Us</h2>
+                    <p>
+                        We're a proud canadian based company that takes pride in what we do- and
+                        that's providing amazing people like you the best fuels possible. <br><br>Thanks to our
+                        top-end staff and supply we are able to offer a variety of the best quality
+                        protein powders, so you can bring you the best tasting fuel there is.                
+                    </p>
+                </div>
+            </div>`;
         }
     };
 
@@ -292,12 +306,14 @@ function navSticky() {
             .getElementById('about1')
             .addEventListener('click', function () {
                 pageHelper.clearPage('about');
+                pageHelper.aboutPage('about')
                 pageHelper.changePage('about');
             });
         document
             .getElementById('about2')
             .addEventListener('click', function () {
                 pageHelper.clearPage('about');
+                pageHelper.aboutPage('about')
                 pageHelper.changePage('about');
             });
     }
