@@ -278,3 +278,30 @@ main div div ul li a {
         opacity: 1;
     }
 }
+
+marquee {
+    -webkit-animation: 2s linear infinite blink;
+    animation: 2s linear infinite blink;
+}
+@-webkit-keyframes blink {
+    0% {
+        visibility: hidden;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+@keyframes blink {
+    0% {
+        visibility: hidden;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}

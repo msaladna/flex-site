@@ -89,13 +89,13 @@ function navSticky() {
             document.getElementById('mainSection').innerHTML = `<div class="row">
                 <div class="col-md-2 category-list">
                     <ul>
-                      
+
                     </ul>
                 </div>
-                <div class="col-md-8">
+                <div class="col-12 col-md-10">
                     <div class="container-fluid">
                         <div class="row product-list">
-                        
+
                         </div>
                     </div>
                 </div>
@@ -139,9 +139,9 @@ function navSticky() {
                 }
             }
 
-            document.getElementById('mainSection').innerHTML = `<form action="https://httpbin.org/post" method="POST">
+            document.getElementById('mainSection').innerHTML = `<form action="https://httpbin.org/post" class="mb-5 col-12 col-lg-6" method="POST">
         <label for="options">What Are You Contacting Us About?</label>
-        <select name="options" id="options">
+        <select name="options" class="form-control" id="options">
             <option id="return" name="return" value="return"
             >Returns
             </option
@@ -159,6 +159,7 @@ function navSticky() {
         <input
                 type="text"
                 id="fname"
+                class="form-control"
                 name="firstname"
                 placeholder="Your name.."
                 required
@@ -169,6 +170,7 @@ function navSticky() {
                 type="text"
                 id="lname"
                 name="lastname"
+                class="form-control"
                 placeholder="Your last name.."
                 required
         />
@@ -178,6 +180,7 @@ function navSticky() {
                 type="email"
                 id="email"
                 name="email address"
+                class="form-control"
                 placeholder="Example@Example.com"
                 required
         />
@@ -187,6 +190,7 @@ function navSticky() {
                 type="text"
                 id="address"
                 name="address"
+                class="form-control"
                 placeholder="Your current address"
                 required
         />
@@ -196,12 +200,13 @@ function navSticky() {
                 type="text"
                 id="address2"
                 name="apptnum"
+                class="form-control"
                 placeholder="ex apt 3021"
         />
 
         <label for="citymulti"> City </label>
-        <input list="citymulti" name="city " required/>
-        <datalist id="citymulti">
+        <input list="citymulti" name="city " class="form-control" required/>
+        <datalist id="citymulti" class="form-control">
             <option value="Toronto"></option>
             <option value="Mississauga"></option>
             <option value="Oakville"></option>
@@ -213,6 +218,7 @@ function navSticky() {
         <input
                 type="text"
                 id="phone"
+                class="form-control"
                 name="phone number"
                 placeholder="999-999-9999"
                 required
@@ -229,6 +235,7 @@ function navSticky() {
         <input
                 type="text"
                 id="postalcode"
+                class="form-control"
                 name="postal code"
                 placeholder="X1X X1X"
         />
@@ -237,6 +244,7 @@ function navSticky() {
         <textarea
                 id="subject"
                 name="subject"
+                class="form-control"
                 placeholder="Write something.."
                 style="height:200px"
                 required
@@ -255,7 +263,9 @@ function navSticky() {
                 value="value"
         />
 
-        <input id="SubmitForm" type="submit"/>
+        <button type="submit" id="SubmitForm" type="submit" class="btn btn-primary">
+            Submit
+        </button>
     </form>`;
             if (document.getElementById("SubmitForm") !== null) {
                 document.getElementById("SubmitForm").addEventListener("click", function () {
@@ -284,7 +294,7 @@ function navSticky() {
                         We're a proud canadian based company that takes pride in what we do; and
                         that's providing amazing people like you the best fuels possible. <br><br>Thanks to our
                         top-end staff and supply we are able to offer a variety of the best quality
-                        protein powders, so we can bring you the best tasting fuel there is.                
+                        protein powders, so we can bring you the best tasting fuel there is.
                     </p>
                 </div>
             </div>`;
@@ -310,12 +320,12 @@ function navSticky() {
         },
         createProductHtml: function (product) {
 
-            let h = '<div class="d-flex m-3 product-card"><div class="card flex-fill">' +
+            let h = '<div class="d-flex mb-3 product-card col-6 col-lg-4 col-xl-2"><div class="card">' +
                 '  <img class="card-img-top" src="' + product.image + '" alt="Card image cap">' +
-                '  <div class="card-body">' +
+                '  <div class="card-body flex-column d-flex">' +
                 '    <h5 class="card-title"><marquee onmouseover="this.stop();" onmouseout="this.start();">' + product.title + '</marquee></h5>' +
                 '    <p class="card-text">' + product.description + '</p>' +
-                '    <a href="#_" class="btn btn-block btn-primary">Buy now for $' + product.price + '</a>' +
+                '    <a href="#_" class="btn btn-block btn-primary mt-auto">Buy now for $' + product.price + '</a>' +
                 '  </div>' +
                 '</div></div>';
 
