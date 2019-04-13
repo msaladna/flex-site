@@ -14,7 +14,7 @@ function navSticky() {
 
 // Menu Handler Functions
 (function () {
-    let currentPage = 'home';
+    let currentPage = '';
     const pageHelper = {
         all: window.data,
         //This function converts the first character of lang to uppercase.
@@ -29,7 +29,9 @@ function navSticky() {
             titleName.appendChild(titleText);
         },
         //Change currentPage to keep track of the current page
-        changePage: function (page) {
+        changePage: function (page, init) {
+            if (init === 1)
+                currentPage = 'home';
             let x = document.getElementById(currentPage + '1');
             x.classList.remove("active");
             let y = document.getElementById(currentPage + '2');
@@ -277,7 +279,7 @@ function navSticky() {
     function setupMenuHandlers() {
         pageHelper.clearPage('home');
         pageHelper.mainPage('home');
-        pageHelper.changePage('home');
+        pageHelper.changePage('home', 1);
         document
             .getElementById('home1')
             .addEventListener('click', function () {
