@@ -176,6 +176,10 @@ body {
     font-size: 1rem;
 }
 
+.product-card {
+    width: 250px;
+}
+
 #footer {
     margin-top: 0.5rem;
 }

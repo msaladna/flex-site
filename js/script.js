@@ -87,15 +87,31 @@ function navSticky() {
                 return;
             }
             document.getElementById('mainSection').innerHTML = `<div class="row">
-                <div class="col-md-4 d-none d-md-flex things2slide position-fixed">
-                    <div class="mr-1">
+                <div class="col-md-2 category-list">
+                    <ul>
+                      
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    <div class="container-fluid">
+                        <div class="row product-list">
                         
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-8" id="catalog">
-                    
-                </div>
             </div>`;
+
+            commerceHelper.showProducts(0);
+            commerceHelper.showCategories();
+
+            for (let item of document.querySelectorAll(".category-list ul li")) {
+                item.addEventListener("click", function (evt) {
+                    commerceHelper.changeCategory(evt.target.getAttribute("data-cid"));
+                    commerceHelper.bold(evt.target.getAttribute("data-cid"));
+                }, false);
+            }
+
+
         },
         //Populates Contact page
         contactPage: function (page) {
@@ -274,6 +290,66 @@ function navSticky() {
             </div>`;
         }
     };
+
+    const commerceHelper = {
+        currentCategoryId: 0,
+
+        showProducts: function (category = 0) {
+            console.log(products);
+            prods = products.filter(function (prod) {
+                if (prod.category == category || category == 0)
+                    return prod
+            })
+            console.log(prods);
+
+            prods.forEach(function (element) {
+                let p = commerceHelper.createProductHtml(element);
+                $('.product-list').append(p);
+            })
+
+        },
+        createProductHtml: function (product) {
+
+            let h = '<div class="d-flex m-3 product-card"><div class="card flex-fill">' +
+                '  <img class="card-img-top" src="' + product.image + '" alt="Card image cap">' +
+                '  <div class="card-body">' +
+                '    <h5 class="card-title"><marquee>' + product.title + '</marquee></h5>' +
+                '    <p class="card-text">' + product.description + '</p>' +
+                '    <a href="#_" class="btn btn-primary">Buy now for $' + product.price + '</a>' +
+                '  </div>' +
+                '</div></div>'
+
+            return h;
+        },
+        showCategories: function () {
+            categories.forEach(function (element) {
+                $('.category-list ul').append('<li><marquee><a href="#_" data-cid="' + element.id + '">' + element.name + '</a></marquee></li>');
+            })
+        },
+        changeCategory: function (category) {
+            if (category == this.currentCategoryId || category == null)
+                category = 0;
+            this.clearProducts();
+            this.showProducts(category);
+            this.currentCategoryId = category;
+        },
+        clearProducts: function () {
+            $('.product-list').html('');
+        },
+        bold: function (category) {
+            for (let item of document.querySelectorAll(".category-list ul li a")) {
+                if ((category == null && item.getAttribute('data-cid') == 0) || category == item.getAttribute('data-cid'))
+                    item.style.fontWeight = 'bold';
+                else
+                    item.style.fontWeight = 'initial';
+
+                console.log(item);
+            }
+            ele.style.fontWeight = 'bold';
+        }
+
+
+    }
 
     //Page initialization and menu handlers
     function setupMenuHandlers() {
