@@ -2,10 +2,8 @@
 window.onscroll = function () {
     navSticky()
 };
-
 let header = document.getElementById("navBar");
 let sticky = header.offsetTop;
-
 function navSticky() {
     if (window.pageYOffset > sticky) {
         header.classList.add("sticky");
@@ -18,6 +16,23 @@ function navSticky() {
 (function () {
     let currentPage = '';
     const pageHelper = {
+        all: window.data,
+        //This function converts the first character of lang to uppercase.
+        cap: function (lang) {
+            return lang.charAt(0).toUpperCase() + lang.slice(1);
+        },
+        //Function to change webpage title, called by changePage
+        titleChange: function (page) {
+            document.getElementById('titleName').innerHTML = '';
+            let titleName = document.getElementById('titleName');
+            let titleText = document.createTextNode('Flex Fuels - ' + this.cap(page));
+            titleName.appendChild(titleText);
+        },
+        //Change currentPage to keep track of the current page
+        changePage: function (page) {
+            currentPage = page;
+            this.titleChange(page);
+        },
         // Clears the main element and populates it with a loading screen to display a loading animation
         clearPage: function (page) {
             if (page !== currentPage) {
@@ -27,18 +42,16 @@ function navSticky() {
                     <div class="lds-ripple"><div></div><div></div></div></div>
                 </div>`;
             }
+            this.titleChange('Loading..');
         },
-        changePage: function (page) {
-            currentPage = page;
-        },
+        //Populates Home page
         mainPage: function (page) {
             if (page === currentPage) {
-                console.log(page + ' is the same as ' + currentPage);
+                console.log(page + ' is the same as ' + currentPage); //debugging
                 return;
             }
             console.log('Writing main page');
-            document.getElementById('mainSection').innerHTML = `
-            <div class="row">
+            document.getElementById('mainSection').innerHTML = `<div class="row">
                 <div class="col-md d-none d-md-flex things2slide">
                     <div class="mr-1">
                         <img src="images/shake1.jpg" class="img img-fluid" alt="Protein Shake" id="proShake">
@@ -57,9 +70,25 @@ function navSticky() {
                     </p>
                 </div>
             </div>`;
+        },
+        //Populates Store page
+        storePage: function (page) {
+            if (page === currentPage) {
+                console.log(page + ' is the same as ' + currentPage); //debugging
+                return;
+            }
+        },
+        //Populates About page
+        aboutPage: function (page) {
+            if (page === currentPage) {
+                console.log(page + ' is the same as ' + currentPage); //debugging
+                return;
+            }
+
         }
     };
 
+    //Page initialization and menu handlers
     function setupMenuHandlers() {
         pageHelper.clearPage('home');
         pageHelper.mainPage('home');
@@ -115,6 +144,5 @@ function navSticky() {
                 pageHelper.changePage('about');
             });
     }
-
     window.onload = setupMenuHandlers;
 })();
