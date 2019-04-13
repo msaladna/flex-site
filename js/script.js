@@ -76,6 +76,16 @@ function navSticky() {
                 console.log(page + ' is the same as ' + currentPage); //debugging
                 return;
             }
+            document.getElementById('mainSection').innerHTML = `<div class="row">
+                <div class="col-md-4 d-none d-md-flex things2slide position-fixed">
+                    <div class="mr-1">
+                        
+                    </div>
+                </div>
+                <div class="col-12 col-md-8" id="catalog">
+                    
+                </div>
+            </div>`;
         },
         //Populates Contact page
         contactPage: function (page) {
@@ -245,10 +255,10 @@ function navSticky() {
                 <div class="col-12 col-md" id="description">
                     <h2>About Us</h2>
                     <p>
-                        We're a proud canadian based company that takes pride in what we do- and
+                        We're a proud canadian based company that takes pride in what we do; and
                         that's providing amazing people like you the best fuels possible. <br><br>Thanks to our
                         top-end staff and supply we are able to offer a variety of the best quality
-                        protein powders, so you can bring you the best tasting fuel there is.                
+                        protein powders, so we can bring you the best tasting fuel there is.                
                     </p>
                 </div>
             </div>`;
