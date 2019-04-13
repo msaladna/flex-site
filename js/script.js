@@ -17,15 +17,23 @@ function navSticky() {
 // Menu Handler Functions
 (function () {
     let currentPage = 'home';
-    const pageHelper = {
+    let pageHelper = {
         // Clears the main element
         clearPage: function (page) {
-            if (page !== currentPage)
+            if (page !== currentPage) {
+                console.log('current page is: ' + currentPage + ' passed in page is: ' + page);
                 document.getElementById('mainSection').innerHTML = "";
+                currentPage = page;
+                console.log('new page is: ' + currentPage);
+            }
         },
+        //Populates Main Page
         mainPage: function (page) {
-            if (page === currentPage)
+            if (currentPage === page) {
+                console.log('main population failed, current page is ' + currentPage);
                 return;
+            }
+            console.log('population success, current page is ' + currentPage);
             document.getElementById('mainSection').innerHTML = `
             <div class="row">
                 <div class="col-md d-none d-md-flex things2slide">
@@ -50,6 +58,7 @@ function navSticky() {
     };
 
     function setupMenuHandlers() {
+        //Home Button Handlers
         document
             .getElementById('home1')
             .addEventListener('click', function () {
@@ -62,6 +71,7 @@ function navSticky() {
                 pageHelper.clearPage('home');
                 pageHelper.mainPage('home');
             });
+        //Store Button Handlers
         document
             .getElementById('store1')
             .addEventListener('click', function () {
@@ -72,6 +82,7 @@ function navSticky() {
             .addEventListener('click', function () {
                 pageHelper.clearPage('store');
             });
+        //Contact Button Handlers
         document
             .getElementById('contact1')
             .addEventListener('click', function () {
@@ -82,6 +93,7 @@ function navSticky() {
             .addEventListener('click', function () {
                 pageHelper.clearPage('contact');
             });
+        //About Button Handlers
         document
             .getElementById('about1')
             .addEventListener('click', function () {
