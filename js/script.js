@@ -16,24 +16,22 @@ function navSticky() {
 
 // Menu Handler Functions
 (function () {
-    let currentPage = 'home';
-    let pageHelper = {
+    let currentPage = '';
+    const pageHelper = {
         // Clears the main element
         clearPage: function (page) {
-            if (page !== currentPage) {
-                console.log('current page is: ' + currentPage + ' passed in page is: ' + page);
+            if (page !== currentPage)
                 document.getElementById('mainSection').innerHTML = "";
-                currentPage = page;
-                console.log('new page is: ' + currentPage);
-            }
         },
-        //Populates Main Page
+        changePage: function (page) {
+            currentPage = page;
+        },
         mainPage: function (page) {
-            if (currentPage === page) {
-                console.log('main population failed, current page is ' + currentPage);
+            if (page === currentPage) {
+                console.log(page + ' is the same as ' + currentPage);
                 return;
             }
-            console.log('population success, current page is ' + currentPage);
+            console.log('Writing main page');
             document.getElementById('mainSection').innerHTML = `
             <div class="row">
                 <div class="col-md d-none d-md-flex things2slide">
@@ -58,51 +56,58 @@ function navSticky() {
     };
 
     function setupMenuHandlers() {
-        //Home Button Handlers
+        //pageHelper.clearPage('home');
+        // pageHelper.mainPage('home');
+        //pageHelper.changePage('home');
         document
             .getElementById('home1')
             .addEventListener('click', function () {
                 pageHelper.clearPage('home');
                 pageHelper.mainPage('home');
+                pageHelper.changePage('home');
             });
         document
             .getElementById('home2')
             .addEventListener('click', function () {
                 pageHelper.clearPage('home');
                 pageHelper.mainPage('home');
+                pageHelper.changePage('home');
             });
-        //Store Button Handlers
         document
             .getElementById('store1')
             .addEventListener('click', function () {
                 pageHelper.clearPage('store');
+                pageHelper.changePage('store');
             });
         document
             .getElementById('store2')
             .addEventListener('click', function () {
                 pageHelper.clearPage('store');
+                pageHelper.changePage('store');
             });
-        //Contact Button Handlers
         document
             .getElementById('contact1')
             .addEventListener('click', function () {
                 pageHelper.clearPage('contact');
+                pageHelper.changePage('contact');
             });
         document
             .getElementById('contact2')
             .addEventListener('click', function () {
                 pageHelper.clearPage('contact');
+                pageHelper.changePage('contact');
             });
-        //About Button Handlers
         document
             .getElementById('about1')
             .addEventListener('click', function () {
                 pageHelper.clearPage('about');
+                pageHelper.changePage('about');
             });
         document
             .getElementById('about2')
             .addEventListener('click', function () {
                 pageHelper.clearPage('about');
+                pageHelper.changePage('about');
             });
     }
 
